@@ -31,6 +31,19 @@ export const createContext = async (opts: CreateNextContextOptions) => {
   // Get the session from the server using the unstable_getServerSession wrapper function
   const session = await getServerAuthSession({ req, res });
 
+  // Example of session object
+  // {
+  //   user: {
+  //     name: 'your_name',
+  //     email: 'your_email@gmail.com',
+  //     image: 'https://link_to_your_profile_pic',
+  //     id: 'A unique id to your profile'
+  //   },
+  //   expires: '2022-12-09T10:59:31.895Z'
+  // }
+
+  console.log(session);
+
   return await createContextInner({
     session,
   });
